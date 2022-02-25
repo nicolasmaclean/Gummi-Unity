@@ -1,0 +1,20 @@
+{
+    "name": "Gummi.Editor.Tests",
+    "rootNamespace": "",
+    "references": [
+        "GUID:5795697d1d6c5e34aac4e7ad42619cb4"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
