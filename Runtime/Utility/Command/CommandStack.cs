@@ -6,6 +6,8 @@ namespace Gummi.Utility.Command
 {
     public class CommandStack : MonoBehaviour
     {
+        public int Count => _history.Count;
+
         [SerializeField]
         internal int maxHistory = 100;
 
@@ -57,6 +59,17 @@ namespace Gummi.Utility.Command
             command.Undo();
 
             return command;
+        }
+
+        /// <summary>
+        /// Clears all <see cref="ICommand"/>'s from the stack and returns them as a list.
+        /// </summary>
+        /// <returns></returns>
+        public List<ICommand> Clear()
+        {
+            List<ICommand> history = _history;
+            _history = new List<ICommand>();
+            return history;
         }
 
         /// <summary>

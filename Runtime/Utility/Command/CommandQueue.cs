@@ -6,6 +6,9 @@ namespace Gummi.Utility.Command
 {
     public class CommandQueue : MonoBehaviour
     {
+        public int Count => _queue.Count;
+        public int HistoryCount => _history.Count;
+
         [SerializeField]
         internal int maxHistory = 100;
 
@@ -64,6 +67,22 @@ namespace Gummi.Utility.Command
         }
 
         /// <summary>
+        /// Executes all queued <see cref="ICommand"/>'s and returns them as a list.
+        /// </summary>
+        /// <returns></returns>
+        public List<ICommand> ExecuteAll()
+        {
+            List<ICommand> executed = new List<ICommand>();
+
+            while (Count > 0)
+            {
+                executed.Add(Execute());
+            }
+
+            return executed;
+        }
+
+        /// <summary>
         /// Undoes the last <see cref="ICommand"/> performed with 
         /// <see cref="Execute"/> and returns it.
         /// </summary>
@@ -104,6 +123,23 @@ namespace Gummi.Utility.Command
             _queue.Insert(0, command);
             return command;
         }
+
+        /// <summary>
+        /// Clears all <see cref="ICommand"/>'s from the queue and returns it as a list.
+        /// </summary>
+        /// <returns></returns>
+        public List<ICommand> Clear()
+        {
+            List<ICommand> queue = _queue;
+            _queue = new List<ICommand>();
+            return queue;
+        }
+
+        /// <summary>
+        /// Clears history and returns it as a list.
+        /// </summary>
+        /// <returns></returns>
+        public List<ICommand> ClearHistory() => _history.Clear();
 
         /// <summary>
         /// Returns a human-readable toString of the command history.
