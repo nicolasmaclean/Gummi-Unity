@@ -1,14 +1,18 @@
 {
     "name": "Gummi.Tests",
-    "rootNamespace": "",
+    "rootNamespace": "Gummi.Tests",
     "references": [
-        "GUID:2c7a2e17697c53543aba4c90afdfb65e"
+        "Gummi",
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
-    "overrideReferences": false,
-    "precompiledReferences": [],
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
     "autoReferenced": false,
     "defineConstraints": [
         "UNITY_INCLUDE_TESTS"

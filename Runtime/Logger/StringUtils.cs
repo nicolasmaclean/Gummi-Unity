@@ -20,7 +20,7 @@ namespace Gummi.Logger
             }
             else
             {
-                return Mathf.CeilToInt(Mathf.Log10(Mathf.Abs(val))) + 1;
+                return Mathf.FloorToInt(Mathf.Log10(Mathf.Abs(val))) + 1;
             }
         }
 
@@ -33,6 +33,11 @@ namespace Gummi.Logger
         /// <returns></returns>
         public static string PrettyPrint(IList list)
         {
+            if (list == null)
+            {
+                return "null";
+            }
+
             string output = "";
 
             int indexLength = CountDigits(list.Count - 1) + 1;
