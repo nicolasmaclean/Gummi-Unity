@@ -1,6 +1,6 @@
 {
-    "name": "Gummi.Editor",
-    "rootNamespace": "",
+    "name": "GummiEditor",
+    "rootNamespace": "GummiEditor",
     "references": [
         "GUID:2c7a2e17697c53543aba4c90afdfb65e"
     ],

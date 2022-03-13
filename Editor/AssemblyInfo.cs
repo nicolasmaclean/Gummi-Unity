@@ -1,4 +1,4 @@
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
-[assembly: InternalsVisibleTo("Gummi.Editor.Tests")]
+[assembly: InternalsVisibleTo("GummiEditor.Tests")]

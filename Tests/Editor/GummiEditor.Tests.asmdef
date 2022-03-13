@@ -1,5 +1,5 @@
 {
-    "name": "Gummi.Editor.Tests",
+    "name": "GummiEditor.Tests",
     "rootNamespace": "",
     "references": [
         "GUID:5795697d1d6c5e34aac4e7ad42619cb4"
