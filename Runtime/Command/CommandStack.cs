@@ -63,6 +63,6 @@ namespace Gummi.Utility.Command
         /// Returns a human-readable toString of <see cref="Instance"/>'s command history.
         /// </summary>
         /// <returns></returns>
-        public string HistoryToString() => Strings.PrettyPrint(_history);
+        public string HistoryToString() => Logger.StringUtils.PrettyPrint(_history);
     }
 }

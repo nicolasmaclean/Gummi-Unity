@@ -115,6 +115,6 @@ namespace Gummi.Utility.Command
         /// Returns a human-readable toString of the queue.
         /// </summary>
         /// <returns></returns>
-        public string QueueToString() => Strings.PrettyPrint(_queue);
+        public string QueueToString() => Logger.StringUtils.PrettyPrint(_queue);
     }
 }
