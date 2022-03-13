@@ -2,39 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
 using Gummi.Logger;
+using UnityEngine;
 
 namespace Gummi.Tests.Logger
 {
     public class StringUtilsTest
     {
-        [Test]
-        public void CountDigitsTest()
+        [TestCase(1, 0, TestName = "0 is a single digit")]
+        [TestCase(1, 1, TestName = "1 is a single digit")]
+        [TestCase(1, 9, TestName = "9 is a single digit")]
+        [TestCase(2, 10, TestName = "10 is double digits")]
+        [TestCase(3, 101, TestName = "101 is triple digits")]
+        [TestCase(1, -1, TestName = "-1 is single digits")]
+        [TestCase(2, -11, TestName = "-11 is double digits")]
+        public void CountDigitsTest(int expected, int value)
         {
-            Assert.AreEqual(1, StringUtils.CountDigits(0));
-            Assert.AreEqual(1, StringUtils.CountDigits(1));
-            Assert.AreEqual(1, StringUtils.CountDigits(9));
-            Assert.AreEqual(2, StringUtils.CountDigits(10));
-            Assert.AreEqual(3, StringUtils.CountDigits(101));
-            Assert.AreEqual(1, StringUtils.CountDigits(-1));
-            Assert.AreEqual(2, StringUtils.CountDigits(-11));
+            Assert.AreEqual(expected, StringUtils.CountDigits(value));
         }
 
-        [Test]
-        public void PrettyPrintTest()
+        [TestCaseSource(nameof(PrettyPrintLists))]
+        public void PrettyPrintTest(PrettyPrintTestCase testCase)
+        {
+            Assert.AreEqual(testCase.expected, StringUtils.PrettyPrint(testCase.test));
+        }
+
+        static IEnumerable<PrettyPrintTestCase> PrettyPrintLists()
         {
             // case: null
-            Assert.AreEqual("null", StringUtils.PrettyPrint(null));
+            yield return new PrettyPrintTestCase("null", "null", null);
 
-            List<int> nums = new List<int>();
 
             // case: []
             string correctOutput = "";
-            Assert.AreEqual(correctOutput, StringUtils.PrettyPrint(nums));
+            yield return new PrettyPrintTestCase("empty", correctOutput, new List<int>());
 
             // case: [1]
+            List<int> nums = new List<int>();
             nums.Add(1);
             correctOutput = $"00 : {1}\n";
-            Assert.AreEqual(correctOutput, StringUtils.PrettyPrint(nums));
+            yield return new PrettyPrintTestCase("[1]", correctOutput, nums);
 
             // case: [1, -2, 4, -8, 16, -32, 64, -128, 256, 512, 1024]
             nums = new List<int>() { 1, -2, 4, -8, 16, -32, 64, -128, 256, 512, 1024 };
@@ -49,21 +55,40 @@ namespace Gummi.Tests.Logger
                 "008 : 256\n" +
                 "009 : 512\n" +
                 "010 : 1024\n";
-            Assert.AreEqual(correctOutput, StringUtils.PrettyPrint(nums));
+            yield return new PrettyPrintTestCase("[1, -2, 4, -8, 16, -32, 64, -128, 256, 512, 1024]",correctOutput, nums);
 
             // case: ["hello"]
             List<string> strings = new List<string>();
 
             strings.Add("hello");
             correctOutput = $"00 : {"hello"}\n";
-            Assert.AreEqual(correctOutput, StringUtils.PrettyPrint(strings));
+            yield return new PrettyPrintTestCase("[\"hello\"]", correctOutput, strings);
 
             // case: [["hello]]
             List<List<string>> lists = new List<List<string>>();
 
             lists.Add(strings);
             correctOutput = $"00 : {lists[0]}\n";
-            Assert.AreEqual(correctOutput, StringUtils.PrettyPrint(lists));
+            yield return new PrettyPrintTestCase("[[\"hello\"]]", correctOutput, lists);
+        }
+
+        public class PrettyPrintTestCase
+        {
+            public string title { get; private set; }
+            public string expected { get; private set; }
+            public IList test { get; private set; }
+
+            public PrettyPrintTestCase(string title, string expected, IList test)
+            {
+                this.title = title;
+                this.expected = expected;
+                this.test = test;
+            }
+
+            public override string ToString()
+            {
+                return title;
+            }
         }
     }
 }
