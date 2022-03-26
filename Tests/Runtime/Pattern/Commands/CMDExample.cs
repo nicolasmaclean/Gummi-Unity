@@ -1,6 +1,6 @@
-using Gummi.Pattern.Command;
+using Gummi.Pattern.Commands;
 
-namespace Gummi.Tests.Pattern.Command
+namespace Gummi.Tests.Pattern.Commands
 {
     public class CMDExample : ICommand
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Gummi.Core.Logger;
 
-namespace Gummi.Pattern.Command
+namespace Gummi.Pattern.Commands
 {
     public class CommandQueue : MonoBehaviour
     {
