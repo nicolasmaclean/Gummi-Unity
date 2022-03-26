@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Gummi.Logger
+namespace Gummi.Core.Logger
 {
     public static class StringUtils
     {

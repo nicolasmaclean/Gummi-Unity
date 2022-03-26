@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
-using Gummi.Logger;
+using Gummi.Core.Logger;
 using UnityEngine;
 
-namespace Gummi.Tests.Logger
+namespace Gummi.Tests.Core.Logger
 {
     public class StringUtilsTest
     {
