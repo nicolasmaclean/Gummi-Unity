@@ -35,6 +35,8 @@ class SFXManager : Singleton<SFXManager>
 
 Any class in the project would be able to play an audio clip using `SFXManager.Instance.PlaySFX(clip)`. This is very handy for prototypes or more simple projects, but is quite limited in its current implementation.
 
+---
+
 # Singleton\<T\>
 
 `T.Instance` is collected by the first `T`'s Awake method, so it requires the developer to create instances of `T` in each scene that requires access to an instance. An example of how to use this is seen in the [Why Use Singletons](#why-use-singletons) section.
@@ -46,6 +48,8 @@ Any class in the project would be able to play an audio clip using `SFXManager.I
 # PLazySingleton\<T\>
 
 `PLazySingleton` shares the same functionality of both `LazySingleton` and `Singleton`, but will also perform `DontDestroyOnLoad(T.Instance)` upon caching a reference to `T.Instance`.
+
+---
 
 ## Credit
 
