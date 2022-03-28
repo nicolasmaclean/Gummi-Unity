@@ -7,8 +7,10 @@ namespace Gummi.Pattern.MVC
     /// <summary>
     /// </summary>
     /// <typeparam name="T"> Enum to map SubControllers to their use. </typeparam>
-    public abstract class RootController<T> : RootController where T : System.Enum
+    public abstract class RootController<T> : MonoBehaviour
+        where T : System.Enum
     {
+        // TODO: make this readonly to the editor
         public T CurrentState;
 
         [Header("Controllers")]
@@ -17,7 +19,7 @@ namespace Gummi.Pattern.MVC
 
         void Start()
         {
-            SubController controller;
+            SubController<T> controller;
 
             // provide SubControllers a reference to this
             foreach (T state in System.Enum.GetValues(typeof(T)))
@@ -26,7 +28,7 @@ namespace Gummi.Pattern.MVC
 
                 if (controller == null)
                 {
-                    Debug.LogWarning($"{name}: missing controller for {nameof(state)}. If this.ChangeController " +
+                    Debug.LogWarning($"{name}: missing controller for {System.Enum.GetName(typeof(T), state)}. If this.ChangeController " +
                         $"attempts to engage this controller, the currently active controller will not be disengaged.");
                 }
                 else
@@ -40,7 +42,7 @@ namespace Gummi.Pattern.MVC
             if (controller == null)
             {
                 Debug.LogError($"{name}: missing controller for the initial state, {nameof(_initialState)}. This component will be disabled.");
-                this.enabled = true;
+                this.enabled = false;
                 return;
             }
 
@@ -52,7 +54,7 @@ namespace Gummi.Pattern.MVC
         /// </summary>
         /// <param name="state"></param>
         /// <returns></returns>
-        protected abstract SubController GetController(T state);
+        protected abstract SubController<T> GetController(T state);
 
         /// <summary>
         /// Method used by subcontrollers to change game phase.
@@ -66,23 +68,19 @@ namespace Gummi.Pattern.MVC
                 return;
             }
 
-            SubController controller = GetController(state);
+            SubController<T> controller = GetController(state);
 
             if (controller == null)
             {
                 Debug.LogError($"{this.GetType().Name}: missing controller for {nameof(state)}. Root will remain in its current state, {CurrentState}.");
-            }
-            else
-            {
                 return;
             }
 
-            // Reseting subcontrollers.
+            // reseting subcontrollers
             DisengageControllers();
 
-            // activate requested
+            // activate requested controller
             controller.EngageController();
-
             CurrentState = state;
         }
 
@@ -99,15 +97,9 @@ namespace Gummi.Pattern.MVC
 
             foreach (T controllerEnum in System.Enum.GetValues(typeof(T)))
             {
-                SubController controller = GetController(controllerEnum);
-                controller.DisengageController();
+                SubController<T> controller = GetController(controllerEnum);
+                controller?.DisengageController();
             }
         }
     }
-
-    /// <summary>
-    /// Only <see cref="RootController{T}"/> should ever inherit from this.
-    /// Classes may refer to this to remove the need to specify T.
-    /// </summary>
-    public abstract class RootController : MonoBehaviour { }
 }

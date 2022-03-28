@@ -7,10 +7,11 @@ namespace Gummi.Pattern.MVC
     /// <summary>
     /// Base class for SubControllers with reference to Root Controller.
     /// </summary>
-    public abstract class SubController : MonoBehaviour
+    public abstract class SubController<TAppState> : MonoBehaviour
+        where TAppState : System.Enum
     {
         [HideInInspector]
-        public RootController root;
+        public RootController<TAppState> root;
 
         /// <summary>
         /// Engage controller.
@@ -32,12 +33,14 @@ namespace Gummi.Pattern.MVC
     /// <summary>
     /// Extending SubController class with generic reference UI Root.
     /// </summary>
-    public abstract class SubController<T> : SubController where T : UIRoot
+    public abstract class SubController<TAppState, TUIView> : SubController<TAppState>
+        where TAppState : System.Enum
+        where TUIView : UIView
     {
-        public T UI => ui;
+        public TUIView UI => ui;
 
         [SerializeField]
-        protected T ui;
+        protected TUIView ui;
 
         /// <summary>
         /// Engage controller.

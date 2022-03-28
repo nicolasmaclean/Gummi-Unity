@@ -4,23 +4,20 @@ using UnityEngine;
 
 namespace Gummi.Pattern.MVC
 {
-    /// <summary>
-    /// Base class for every UI element and view.
-    /// </summary>
     public class UIView : MonoBehaviour
     {
         /// <summary>
-        /// Show view or element
+        /// Show UI
         /// </summary>
-        public virtual void ShowView()
+        public virtual void ShowRoot()
         {
             gameObject.SetActive(true);
         }
 
         /// <summary>
-        /// Hide view or element
+        /// Hide UI
         /// </summary>
-        public virtual void HideView()
+        public virtual void HideRoot()
         {
             gameObject.SetActive(false);
         }
