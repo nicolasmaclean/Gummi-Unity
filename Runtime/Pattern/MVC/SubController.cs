@@ -16,7 +16,7 @@ namespace Gummi.Pattern.MVC
         /// <summary>
         /// Engage controller.
         /// </summary>
-        public virtual void EngageController()
+        public virtual void Engage()
         {
             gameObject.SetActive(true);
         }
@@ -24,7 +24,7 @@ namespace Gummi.Pattern.MVC
         /// <summary>
         /// Disengage controller.
         /// </summary>
-        public virtual void DisengageController()
+        public virtual void Disengage()
         {
             gameObject.SetActive(false);
         }
@@ -45,19 +45,24 @@ namespace Gummi.Pattern.MVC
         /// <summary>
         /// Engage controller.
         /// </summary>
-        public override void EngageController()
+        public override void Engage()
         {
-            base.EngageController();
-            ui.ShowRoot();
+            base.Engage();
+            ui?.ShowRoot();
+
+            if (ui == null)
+            {
+                Debug.LogError($"{name}: missing UI reference.");
+            }
         }
 
         /// <summary>
         /// Disengage controller.
         /// </summary>
-        public override void DisengageController()
+        public override void Disengage()
         {
-            base.DisengageController();
-            ui.HideRoot();
+            base.Disengage();
+            ui?.HideRoot();
         }
     }
 }

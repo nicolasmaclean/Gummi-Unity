@@ -80,7 +80,7 @@ namespace Gummi.Pattern.MVC
             DisengageControllers();
 
             // activate requested controller
-            controller.EngageController();
+            controller.Engage();
             CurrentState = state;
         }
 
@@ -98,7 +98,7 @@ namespace Gummi.Pattern.MVC
             foreach (T controllerEnum in System.Enum.GetValues(typeof(T)))
             {
                 SubController<T> controller = GetController(controllerEnum);
-                controller?.DisengageController();
+                controller?.Disengage();
             }
         }
     }
