@@ -10,13 +10,7 @@ namespace Gummi.Pattern.Singletons
         {
             get
             {
-                if (singletonDestroyed)
-                {
-                    Debug.LogWarningFormat($"LazyPersistentSingleton: {nameof(T)} was already destroyed by quiting game. Returning null");
-                    return null;
-                }
-
-                if (!_instance)
+                if (_instance == null)
                 {
                     new GameObject(typeof(T).ToString()).AddComponent<T>();
                 }
@@ -25,13 +19,12 @@ namespace Gummi.Pattern.Singletons
             }
         }
 
-        static bool singletonDestroyed = false;
         static T _instance;
 
         protected virtual void Awake()
         {
             // enforce single instance rule
-            if (_instance == null && !singletonDestroyed)
+            if (_instance == null)
             {
                 _instance = this as T;
                 DontDestroyOnLoad(_instance);
@@ -46,7 +39,6 @@ namespace Gummi.Pattern.Singletons
         {
             if (_instance != this) return;
 
-            singletonDestroyed = true;
             _instance = null;
         }
     }

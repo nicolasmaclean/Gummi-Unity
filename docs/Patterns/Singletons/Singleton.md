@@ -1,11 +1,18 @@
 # Singleton\<T\>
 
----
+namespace: [Gummi.Pattern.Singletons](./Singletons.md)  
+Inherits: `MonoBehaviour`
 
-namespace: Gummi.Pattern.Singletons
+## Summary
 
-Inherits: MonoBehaviour
+Base class for simple scene-contained Singletons.
 
----
+## Fields
 
-`T.Instance` is collected by the first `T`'s Awake method, so it requires the developer to create instances of `T` in each scene that requires access to an instance. An example of how to use this is seen in the [Why Use Singletons](#why-use-singletons) section.
+`public static T Instance`: The instance of `T` in the scene. It may also be null if there are no instances in the scene.
+
+## Methods
+
+`protected virtual void Awake()`: enforces Singleton pattern.
+
+`protected virtual void OnDestroy()`: sets `T.Instance` to null.

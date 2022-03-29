@@ -1,11 +1,18 @@
 # LazySingleton\<T\>
 
----
+namespace: [Gummi.Pattern.Singletons](./Singletons.md)  
+Inherits: `MonoBehaviour`
 
-namespace: Gummi.Pattern.Singletons
+## Summary
 
-Inherits: MonoBehaviour
+Base class for lazy-loaded, scene-contained Singletons. If the scene does not already contain an instance, it will create one.
 
----
+## Fields
 
-`LazySingleton` shares the same functionality as the `Singleton` base class, but provides a lazy-construction of `T.Instance`. If there is no instance of `T` in the scene when `T.Instance` is accessed, an empty game object will be created an have `T` added to it. This game object becomes `T.Instance`.
+`public static T Instance`: The instance of `T` in the scene. It will never be null. If there is not an instance in the scene, a new instance will be made/returned.
+
+## Methods
+
+`protected virtual void Awake()`: enforces Singleton pattern.
+
+`protected virtual void OnDestroy()`: sets `T.Instance` to null.

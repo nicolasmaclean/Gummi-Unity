@@ -1,15 +1,22 @@
 # class abstract RootController\<enum\>
 
----
+namespace: [Gummi.Pattern.MVC](./MVC.md)  
+Inherits: `MonoBehaviour`
 
-namespace: Gummi.Pattern.MVC
+## Summary
 
-Inherits: MonoBehaviour
+A base class for implementing an application's root controller. `enum` contains values for the possible states the application is allowed to be in.
 
----
+Intented use includes a singlular derived instance of this class in a scene. Though, more than one may be used.
 
-A base class for a root controller of an app with `enum` being the possible states the app may be in.
+## Fields
 
-`protected abstract SubController<T> GetController(T state)` must be implemented for `RootController` methods to access any `SubController`s corresponding to a value of `enum`. The example `AppController` utilizes serialized fields in Unity to store references to all `SubControllers` and connects `enum` values to the appropriate field.
+`public static T Instance`: The instance of `T` in the scene. It will never be null. If there is not an instance in the scene, a new instance will be made/returned.
 
-A scene in Unity should probably have only one `RootController` instances.
+## Methods
+
+`protected abstract SubController<enum> GetController(enum state)`: maps possible application states to `SubControllers`.
+
+`public void ChangeController(enum state)`: disengages all SubControllers and engages the SubController mapped to `state`.
+
+`public void DisengageController()`: disengages all SubControllers.
