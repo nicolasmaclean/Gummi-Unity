@@ -148,35 +148,7 @@ The PlayerPrefs in the `GameController` and `GameOverController` acts as the mod
 
 ---
 
-# class abstract RootController\<enum\>
-
-A base class for a root controller of an app with `enum` being the possible states the app may be in.
-
-`protected abstract SubController<T> GetController(T state)` must be implemented for `RootController` methods to access any `SubController`s corresponding to a value of `enum`. The example `AppController` utilizes serialized fields in Unity to store references to all `SubControllers` and connects `enum` values to the appropriate field.
-
-A scene in Unity should probably have only one `RootController` instances.
-
-# class abstract SubController\<enum\>
-
-A base class for a bare-bones `SubController`, derived classes should handle their connection to a view and enable/disable it as the `SubController` is enabled/disabled.
-
-SubController's should connect input processing logic to its view and manipulate the application's model's data.
-
-# class abstract SubController\<enum, uiView\>
-
-A base class build ontop of SubController\<enum\> that must have a connection to an instance of `uiView`, `ui`. The `ui` GameObject is enabled/disabled as the `SubController` is engaged/disengaged.
-
-See SubController\<enum\> for more info.
-
-# class UIView
-
-Derived definitions may be used in the composition of SubController<enum, uiView> definition.
-
-It should contain all logic necessary to render data and take user input necessary in this state.
-
----
-
-## Credit
+# Credit
 
 This code is heavily recycled from Patryk Galach's blog post [here](https://www.patrykgalach.com/2019/04/29/simple-mvc-for-unity/) and his bitbucket repo [here](https://bitbucket.org/gaello/simple-mvc/src/master/).
 

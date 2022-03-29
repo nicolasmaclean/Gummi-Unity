@@ -37,20 +37,6 @@ Any class in the project would be able to play an audio clip using `SFXManager.I
 
 ---
 
-# Singleton\<T\>
-
-`T.Instance` is collected by the first `T`'s Awake method, so it requires the developer to create instances of `T` in each scene that requires access to an instance. An example of how to use this is seen in the [Why Use Singletons](#why-use-singletons) section.
-
-# LazySingleton\<T\>
-
-`LazySingleton` shares the same functionality as the `Singleton` base class, but provides a lazy-construction of `T.Instance`. If there is no instance of `T` in the scene when `T.Instance` is accessed, an empty game object will be created an have `T` added to it. This game object becomes `T.Instance`.
-
-# PLazySingleton\<T\>
-
-`PLazySingleton` shares the same functionality of both `LazySingleton` and `Singleton`, but will also perform `DontDestroyOnLoad(T.Instance)` upon caching a reference to `T.Instance`.
-
----
-
 ## Credit
 
 This code is heavily recycled from Patryk Galach's blog post [here](https://www.patrykgalach.com/2019/04/04/singleton-in-unity-love-or-hate/) and his bitbucket repo [here](https://bitbucket.org/gaello/singletons/).
