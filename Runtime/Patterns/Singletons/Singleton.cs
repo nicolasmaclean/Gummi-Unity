@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Gummi.Pattern.Singletons
+namespace Gummi.Patterns.Singletons
 {
     public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {

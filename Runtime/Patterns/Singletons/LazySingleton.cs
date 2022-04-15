@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Gummi.Pattern.Singletons
+namespace Gummi.Patterns.Singletons
 {
     public class LazySingleton<T> : MonoBehaviour where T : MonoBehaviour
     {
+        static T instance;
         public static T Instance
         {
             get
@@ -18,9 +19,6 @@ namespace Gummi.Pattern.Singletons
                 return instance;
             }
         }
-
-        static bool singletonDestroyed = false;
-        static T instance;
 
         protected virtual void Awake()
         {

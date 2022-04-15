@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Gummi.Core.Logger;
 
-namespace Gummi.Pattern.Commands
+namespace Gummi.Patterns.Commands
 {
     public class CommandQueue : MonoBehaviour
     {
@@ -152,6 +151,6 @@ namespace Gummi.Pattern.Commands
         /// Returns a human-readable toString of the queue.
         /// </summary>
         /// <returns></returns>
-        public string QueueToString() => StringUtils.PrettyPrint(_queue);
+        public string QueueToString() => _queue.PrettyPrint();
     }
 }

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using NUnit.Framework;
-using Gummi.Pattern.Commands;
+using Gummi.Patterns.Commands;
 
-namespace Gummi.Tests.Pattern.Commands
+namespace Gummi.Tests.Patterns.Commands
 {
     [TestFixture]
     public class CommandQueueTest
