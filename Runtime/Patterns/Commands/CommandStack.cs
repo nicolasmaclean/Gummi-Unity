@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Gummi.Core.Logger;
+using Gummi;
 
-namespace Gummi.Pattern.Commands
+namespace Gummi.Patterns.Commands
 {
     public class CommandStack : MonoBehaviour
     {
@@ -77,6 +77,6 @@ namespace Gummi.Pattern.Commands
         /// Returns a human-readable toString of <see cref="Instance"/>'s command history.
         /// </summary>
         /// <returns></returns>
-        public string HistoryToString() => StringUtils.PrettyPrint(_history);
+        public string HistoryToString() => _history.PrettyPrint();
     }
 }

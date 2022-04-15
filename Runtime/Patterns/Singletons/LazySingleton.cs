@@ -2,34 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Gummi.Pattern.Singletons
+namespace Gummi.Patterns.Singletons
 {
-    public class PLazySingleton<T> : MonoBehaviour where T : MonoBehaviour
+    public class LazySingleton<T> : MonoBehaviour where T : MonoBehaviour
     {
+        static T instance;
         public static T Instance
         {
             get
             {
-                if (_instance == null)
+                if (instance == null)
                 {
                     new GameObject(typeof(T).ToString()).AddComponent<T>();
                 }
 
-                return _instance;
+                return instance;
             }
         }
-
-        static T _instance;
 
         protected virtual void Awake()
         {
             // enforce single instance rule
-            if (_instance == null)
+            if (instance == null)
             {
-                _instance = this as T;
-                DontDestroyOnLoad(_instance);
+                instance = this as T;
             }
-            else if (_instance != this)
+            else
             {
                 Destroy(this);
             }
@@ -37,9 +35,9 @@ namespace Gummi.Pattern.Singletons
 
         protected virtual void OnDestroy()
         {
-            if (_instance != this) return;
+            if (instance != this) return;
 
-            _instance = null;
+            instance = null;
         }
     }
 }

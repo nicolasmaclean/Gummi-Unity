@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
-using Gummi.Core.Logger;
+using Gummi;
 using UnityEngine;
 
-namespace Gummi.Tests.Core.Logger
+namespace Gummi.Tests.Core
 {
-    public class StringUtilsTest
+    public class ExtensionsTest
     {
         [TestCase(1, 0, TestName = "0 is a single digit")]
         [TestCase(1, 1, TestName = "1 is a single digit")]
@@ -17,13 +17,13 @@ namespace Gummi.Tests.Core.Logger
         [TestCase(2, -11, TestName = "-11 is double digits")]
         public void CountDigitsTest(int expected, int value)
         {
-            Assert.AreEqual(expected, StringUtils.CountDigits(value));
+            Assert.AreEqual(expected, value.CountDigits());
         }
 
         [TestCaseSource(nameof(PrettyPrintLists))]
         public void PrettyPrintTest(PrettyPrintTestCase testCase)
         {
-            Assert.AreEqual(testCase.expected, StringUtils.PrettyPrint(testCase.test));
+            Assert.AreEqual(testCase.expected, testCase.test.PrettyPrint());
         }
 
         static IEnumerable<PrettyPrintTestCase> PrettyPrintLists()

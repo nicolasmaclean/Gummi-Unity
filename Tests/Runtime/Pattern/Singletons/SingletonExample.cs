@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Gummi.Pattern.Singletons;
+using Gummi.Patterns.Singletons;
 
-namespace Gummi.Tests.Pattern.Singletons
+namespace Gummi.Tests.Patterns.Singletons
 {
     public class SingletonExample : Singleton<SingletonExample>
     {

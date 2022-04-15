@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using NUnit.Framework;
 
-namespace Gummi.Tests.Pattern.Singletons
+namespace Gummi.Tests.Patterns.Singletons
 {
     public class SingletonTests : MonoBehaviour
     {

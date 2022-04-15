@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Gummi.Pattern.MVC
+namespace Gummi.Patterns.MVC
 {
     public class UIView : MonoBehaviour
     {
