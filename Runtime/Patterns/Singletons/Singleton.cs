@@ -16,7 +16,7 @@ namespace Gummi.Patterns.Singletons
             {
                 _instance = this as T;
             }
-            else if (_instance != this)
+            else
             {
                 Destroy(this);
             }

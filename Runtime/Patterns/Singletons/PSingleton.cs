@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Gummi.Patterns.Singletons
 {
-    public class PLazySingleton<T> : LazySingleton<T> where T : MonoBehaviour
+    public class PSingleton<T> : Singleton<T> where T : MonoBehaviour
     {
         protected override void Awake()
         {
