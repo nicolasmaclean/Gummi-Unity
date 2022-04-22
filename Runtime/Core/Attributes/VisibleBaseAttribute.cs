@@ -14,8 +14,8 @@ namespace Gummi
         public object Benchmark { get; protected set; }
         public bool WasGivenBenchmark { get; protected set; } = false;
 
-        protected bool _toggleEnabled;
-        protected bool _toggleVisiblity;
+        public bool AffectEnabled { get; private set; }
+        public bool AffectVisiblity { get; private set; }
 
         public VisibleBaseAttribute(string target, object benchmark, bool toggleEnabled=false, bool toggleVisibility = false) : this(target, toggleEnabled, toggleVisibility)
         {
@@ -26,8 +26,8 @@ namespace Gummi
         public VisibleBaseAttribute(string target, bool toggleEnabled = false, bool toggleVisibility = false)
         {
             Target = target;
-            _toggleEnabled = toggleEnabled;
-            _toggleVisiblity = toggleVisibility;
+            AffectEnabled = toggleEnabled;
+            AffectVisiblity = toggleVisibility;
         }
 
 #if UNITY_EDITOR

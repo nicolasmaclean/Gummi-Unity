@@ -12,7 +12,22 @@ namespace GummiEditor.Drawer
             VisibleBaseAttribute attr = attribute as VisibleBaseAttribute;
 
             // skip drawing if not visible
-            if (!attr.Visible(property)) return;
+            if (!attr.Visible(property))
+            {
+                if (attr.AffectEnabled)
+                {
+                    // show disabled property
+                    using (new EditorGUI.IndentLevelScope())
+                    {
+                        var previousGUIState = GUI.enabled;
+                        GUI.enabled = false;
+                        EditorGUI.PropertyField(position, property, label);
+                        GUI.enabled = previousGUIState;
+                    }
+                }
+
+                return;
+            }
 
             // show property
             using (new EditorGUI.IndentLevelScope())
@@ -25,7 +40,7 @@ namespace GummiEditor.Drawer
         {
             // use default height if visible else 0
             VisibleBaseAttribute attr = attribute as VisibleBaseAttribute;
-            return attr.Visible(property) ? base.GetPropertyHeight(property, label) : 0;
+            return attr.AffectVisiblity && !attr.Visible(property) ? 0 : base.GetPropertyHeight(property, label);
         }
     }
 }
