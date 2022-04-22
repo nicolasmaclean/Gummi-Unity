@@ -1,6 +1,6 @@
 {
     "name": "Gummi",
-    "rootNamespace": "",
+    "rootNamespace": "Gummi",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

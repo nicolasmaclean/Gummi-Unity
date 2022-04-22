@@ -1,12 +1,14 @@
 {
-    "name": "Gummi.Tests",
-    "rootNamespace": "Gummi.Tests",
+    "name": "GummiEditor.Tests",
+    "rootNamespace": "GummiEditor.Tests",
     "references": [
-        "Gummi",
+        "GummiEditor",
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": true,

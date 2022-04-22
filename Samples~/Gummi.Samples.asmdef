@@ -1,12 +1,10 @@
 {
-    "name": "Gummi.Editor",
-    "rootNamespace": "",
+    "name": "Gummi.Samples",
+    "rootNamespace": "Gummi.Samples",
     "references": [
         "GUID:2c7a2e17697c53543aba4c90afdfb65e"
     ],
-    "includePlatforms": [
-        "Editor"
-    ],
+    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

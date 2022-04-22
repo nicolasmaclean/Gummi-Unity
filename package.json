@@ -14,5 +14,12 @@
     "Gummi"
   ],
   "type": "tool",
-  "hideInEditor": false
+  "hideInEditor": false,
+  "samples": [
+    {
+      "displayName": "MVC Pattern",
+      "description": "An example scene for building an application using Gummi.Pattern.MVC base classes to follow the MVC design pattern.",
+      "path": "Samples~/MVC"
+    }
+  ]
 }

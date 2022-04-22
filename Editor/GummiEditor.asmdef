@@ -1,8 +1,8 @@
 {
-    "name": "Gummi.Editor.Tests",
-    "rootNamespace": "",
+    "name": "GummiEditor",
+    "rootNamespace": "GummiEditor",
     "references": [
-        "GUID:5795697d1d6c5e34aac4e7ad42619cb4"
+        "GUID:2c7a2e17697c53543aba4c90afdfb65e"
     ],
     "includePlatforms": [
         "Editor"
@@ -11,10 +11,8 @@
     "allowUnsafeCode": false,
     "overrideReferences": false,
     "precompiledReferences": [],
-    "autoReferenced": false,
-    "defineConstraints": [
-        "UNITY_INCLUDE_TESTS"
-    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
     "versionDefines": [],
     "noEngineReferences": false
 }
