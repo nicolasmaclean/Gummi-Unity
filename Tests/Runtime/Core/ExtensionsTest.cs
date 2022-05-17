@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
-using Gummi;
-using UnityEngine;
 
 namespace Gummi.Tests.Core
 {

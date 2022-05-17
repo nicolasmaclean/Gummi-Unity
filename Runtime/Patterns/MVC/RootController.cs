@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 namespace Gummi.Patterns.MVC
@@ -8,7 +7,7 @@ namespace Gummi.Patterns.MVC
     /// </summary>
     /// <typeparam name="T"> Enum to map SubControllers to their use. </typeparam>
     public abstract class RootController<T> : MonoBehaviour
-        where T : System.Enum
+        where T : Enum
     {
         // TODO: make this readonly to the editor
         public T CurrentState;
@@ -22,13 +21,13 @@ namespace Gummi.Patterns.MVC
             SubController<T> controller;
 
             // provide SubControllers a reference to this
-            foreach (T state in System.Enum.GetValues(typeof(T)))
+            foreach (T state in Enum.GetValues(typeof(T)))
             {
                 controller = GetController(state);
 
                 if (controller == null)
                 {
-                    Debug.LogWarning($"{name}: missing controller for {System.Enum.GetName(typeof(T), state)}. If this.ChangeController " +
+                    Debug.LogWarning($"{name}: missing controller for {Enum.GetName(typeof(T), state)}. If this.ChangeController " +
                         $"attempts to engage this controller, the currently active controller will not be disengaged.");
                 }
                 else
@@ -95,7 +94,7 @@ namespace Gummi.Patterns.MVC
                 return;
             }
 
-            foreach (T controllerEnum in System.Enum.GetValues(typeof(T)))
+            foreach (T controllerEnum in Enum.GetValues(typeof(T)))
             {
                 SubController<T> controller = GetController(controllerEnum);
                 controller?.Disengage();
