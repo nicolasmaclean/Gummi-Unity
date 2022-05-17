@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using NUnit.Framework;
+using System;
 using Gummi.Patterns.Commands;
+using NUnit.Framework;
+using Object = UnityEngine.Object;
 
 namespace Gummi.Tests.Patterns.Commands
 {
@@ -26,7 +25,7 @@ namespace Gummi.Tests.Patterns.Commands
         {
             if (_commandStack != null)
             {
-                UnityEngine.Object.Destroy(_commandStack.gameObject);
+                Object.Destroy(_commandStack.gameObject);
                 _commandStack = null;
             }
         }
@@ -40,7 +39,7 @@ namespace Gummi.Tests.Patterns.Commands
         [Test]
         public void BasicExecuteTest()
         {
-            Assert.Throws(typeof(System.NullReferenceException), () => _commandStack.Execute(null));
+            Assert.Throws(typeof(NullReferenceException), () => _commandStack.Execute(null));
 
             foreach (int executions in new int[] { 0, 2, 20 })
             {

@@ -1,8 +1,8 @@
 // https://www.patrykgalach.com/2020/01/20/readonly-attribute-in-unity-editor/
 
-using UnityEngine;
-using UnityEditor;
 using Gummi;
+using UnityEditor;
+using UnityEngine;
 
 namespace GummiEditor.Drawer
 {

@@ -1,9 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEditor;
-using Gummi.Utility;
 using System.Text.RegularExpressions;
+using Gummi.Utility;
+using UnityEditor;
+using UnityEngine;
 
 namespace GummiEditor
 {
