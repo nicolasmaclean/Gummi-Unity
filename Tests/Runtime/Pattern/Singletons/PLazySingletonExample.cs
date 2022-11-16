@@ -1,4 +1,4 @@
-using Gummi.Patterns.Singletons;
+using Gummi.Patterns;
 
 namespace Gummi.Tests.Patterns.Singletons
 {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gummi.Patterns.Singletons
+namespace Gummi.Patterns
 {
     public class PLazySingleton<T> : LazySingleton<T> where T : MonoBehaviour
     {

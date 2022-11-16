@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Gummi.Patterns.Commands;
+using Gummi.Patterns;
 using NUnit.Framework;
 using UnityEngine;
 

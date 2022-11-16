@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Gummi.Patterns.MVC
+namespace Gummi.Patterns
 {
     /// <summary>
     /// Base class for SubControllers with reference to Root Controller.

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Gummi.Patterns.Commands
+namespace Gummi.Patterns
 {
     public class CommandStack : MonoBehaviour
     {

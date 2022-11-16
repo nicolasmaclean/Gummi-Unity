@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gummi.Patterns.Singletons
+namespace Gummi.Patterns
 {
     public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {

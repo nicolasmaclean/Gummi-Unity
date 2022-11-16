@@ -1,5 +1,5 @@
 using System;
-using Gummi.Patterns.Commands;
+using Gummi.Patterns;
 using NUnit.Framework;
 using Object = UnityEngine.Object;
 

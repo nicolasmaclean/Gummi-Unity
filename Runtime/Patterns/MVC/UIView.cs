@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gummi.Patterns.MVC
+namespace Gummi.Patterns
 {
     public class UIView : MonoBehaviour
     {
