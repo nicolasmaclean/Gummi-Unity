@@ -11,11 +11,11 @@ namespace Gummi
     /// For greater maintainability of your code, use nameof() for a property's name.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property, AllowMultiple=false, Inherited=true)]
-    public class DisableIfAttribute : VisibleBaseAttribute
+    public class EnableIfAttribute : VisibleBaseAttribute
     {
-        public DisableIfAttribute(string target) : base(target, toggleEnabled: true) { }
+        public EnableIfAttribute(string target) : base(target, toggleEnabled: true) { }
 
-        public DisableIfAttribute(string target, object benchmark) : base(target, benchmark, toggleEnabled: true) { }
+        public EnableIfAttribute(string target, object benchmark) : base(target, benchmark, toggleEnabled: true) { }
 
 #if UNITY_EDITOR
         public override bool Visible(SerializedProperty property)
@@ -30,7 +30,7 @@ namespace Gummi
                 return true;
             }
 
-            return !EqualToBenchmark(prop);
+            return EqualToBenchmark(prop);
         }
 #endif
     }
