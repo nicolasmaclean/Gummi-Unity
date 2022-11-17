@@ -1,4 +1,4 @@
-namespace Gummi.Patterns.Commands
+namespace Gummi.Patterns
 {
     /// <summary>
     /// This interface is necessary to implement the Command Pattern and connect with CommandManager.

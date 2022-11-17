@@ -1,9 +1,8 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Gummi;
 
-namespace Gummi.Patterns.Commands
+namespace Gummi.Patterns
 {
     public class CommandStack : MonoBehaviour
     {
@@ -31,7 +30,7 @@ namespace Gummi.Patterns.Commands
         {
             if (command == null)
             {
-                throw new System.NullReferenceException();
+                throw new NullReferenceException();
             }
 
             command.Execute();

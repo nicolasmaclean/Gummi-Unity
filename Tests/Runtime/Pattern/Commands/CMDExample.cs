@@ -1,4 +1,4 @@
-using Gummi.Patterns.Commands;
+using Gummi.Patterns;
 
 namespace Gummi.Tests.Patterns.Commands
 {

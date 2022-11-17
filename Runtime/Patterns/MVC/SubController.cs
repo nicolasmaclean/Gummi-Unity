@@ -1,14 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-namespace Gummi.Patterns.MVC
+namespace Gummi.Patterns
 {
     /// <summary>
     /// Base class for SubControllers with reference to Root Controller.
     /// </summary>
     public abstract class SubController<TAppState> : MonoBehaviour
-        where TAppState : System.Enum
+        where TAppState : Enum
     {
         [HideInInspector]
         public RootController<TAppState> root;
@@ -34,7 +33,7 @@ namespace Gummi.Patterns.MVC
     /// Extending SubController class with generic reference UI Root.
     /// </summary>
     public abstract class SubController<TAppState, TUIView> : SubController<TAppState>
-        where TAppState : System.Enum
+        where TAppState : Enum
         where TUIView : UIView
     {
         public TUIView UI => ui;

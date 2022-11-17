@@ -1,8 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using Gummi.Patterns;
 using NUnit.Framework;
-using Gummi.Patterns.Commands;
+using UnityEngine;
 
 namespace Gummi.Tests.Patterns.Commands
 {
@@ -26,7 +25,7 @@ namespace Gummi.Tests.Patterns.Commands
         {
             if (_commandQueue != null)
             {
-                UnityEngine.Object.Destroy(_commandQueue.gameObject);
+                Object.Destroy(_commandQueue.gameObject);
                 _commandQueue = null;
             }
         }

@@ -1,5 +1,8 @@
 # Welcome to Gummi
 
+[![Unity 2020.3+](https://img.shields.io/badge/unity-2020.3%2B-blue.svg)](https://unity3d.com/get-unity/download)
+[![openupm](https://img.shields.io/npm/v/com.nicolasmaclean.gummi?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.nicolasmaclean.gummi/)
+
 Additional information is available in the Gummi documentation's [website](https://gummi.nicolasmaclean.com) or [repo](https://github.com/nicolasmaclean/Gummi-Docs)
 
 # Installation

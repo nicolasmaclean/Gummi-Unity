@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Gummi.Patterns.Singletons;
+using Gummi.Patterns;
 
 namespace Gummi.Tests.Patterns.Singletons
 {

@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace Gummi.Patterns.MVC
+namespace Gummi.Patterns
 {
     public class UIView : MonoBehaviour
     {
