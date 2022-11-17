@@ -9,6 +9,7 @@ namespace Gummi.Patterns
             base.Awake();
             if (this != Instance) return;
 
+            transform.SetParent(null);
             DontDestroyOnLoad(this);
         }
     }
