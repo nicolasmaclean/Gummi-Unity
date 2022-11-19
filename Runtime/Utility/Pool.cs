@@ -69,10 +69,18 @@ namespace Gummi.Utility
         /// Return instance of <see cref="_prefab"/> retrieved by <see cref="CheckOut"/>.
         /// </summary>
         /// <param name="go"></param>
-        public void CheckIn(GameObject go)
+        public void CheckIn(GameObject go, bool moveToScene=false)
         {
+            if (!go) return;
+            
             go.SetActive(false);
             _pool.Add(go);
+            
+            if (moveToScene)
+            {
+                if (go.transform.parent != null) go.transform.SetParent(null);
+                SceneManager.MoveGameObjectToScene(go, _scene);
+            }
         }
 
         GameObject GenerateObject()
@@ -110,14 +118,21 @@ namespace Gummi.Utility
         /// </summary>
         /// <param name="go"></param>
         /// <typeparam name="T"></typeparam>
-        public static void CheckIn<T>(GameObject go)
+        public static void CheckIn<T>(GameObject go, bool moveToScene=false)
         {
             // no GameObject was provided :(
             if (!go) return;
-            
-            ConcurrentBag<GameObject> pool = GetPoolData<T>().Pool;
+
+            PoolData data = GetPoolData<T>();
+            ConcurrentBag<GameObject> pool = data.Pool;
             go.SetActive(false);
             pool.Add(go);
+                        
+            if (moveToScene)
+            {
+                if (go.transform.parent != null) go.transform.SetParent(null);
+                SceneManager.MoveGameObjectToScene(go, data.Scene);
+            }
         }
 
         static PoolData GetPoolData<T>()
