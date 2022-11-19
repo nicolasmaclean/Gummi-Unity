@@ -20,6 +20,9 @@ namespace GummiEditor.Patterns
         static void Populate()
         {
             Assembly assembly = GetAssemblyByName("Game");
+            // exit, there is no Game assembly
+            if (assembly == null) return;
+            
             foreach (var type in FindSubClassesOf<SingletonSOBase>(assembly))
             {
                 Object[] instances = Resources.LoadAll("", type);
