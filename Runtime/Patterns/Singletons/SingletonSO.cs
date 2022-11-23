@@ -45,7 +45,6 @@ public abstract class SingletonSO<T> : SingletonSOBase where T : SingletonSO<T>
     /// <exception cref="Exception"> There is more or less than 1 instance in /Assets/Resources/. </exception>
     static T ReadDataFromResources()
     {
-        Debug.Log("loading");
         // search resources
         T[] assets = Resources.LoadAll<T>("");
 
