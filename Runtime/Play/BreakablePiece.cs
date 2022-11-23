@@ -15,7 +15,6 @@ namespace Gummi.Play
         [SerializeField, ShowIf(nameof(_waitTillDoneMoving))]
         float _waitInterval = 5f;
 
-        [SerializeField]
         Rigidbody _rb;
 
         float _elapsedTime;

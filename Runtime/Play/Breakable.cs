@@ -1,8 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics.Tracing;
 using Gummi.Utility;
+using UnityEditor;
 using UnityEngine;
 
 namespace Gummi.Play
@@ -11,9 +8,7 @@ namespace Gummi.Play
     {
         [SerializeField] GameObject _unbroken;
         [SerializeField] GameObject _broken;
-        
-        [SerializeField]
-        BreakablePiece[] _pieces;
+        [SerializeField] BreakablePiece[] _pieces;
         
         [Header("Collision")]
         [SerializeField]
@@ -26,7 +21,6 @@ namespace Gummi.Play
         [ShowIf(nameof(_breakOnCollision))]
         LayerMask _layerMask = ~0;
 
-        [SerializeField]
         Rigidbody _rb;
 
         void Awake()
@@ -73,6 +67,44 @@ namespace Gummi.Play
         void OnValidate()
         {
             _pieces = GetComponentsInChildren<BreakablePiece>();
+        }
+
+        [Button(Spacing = 25)]
+        void AddMeshColliders()
+        {
+            foreach (MeshFilter child in _broken.GetComponentsInChildren<MeshFilter>())
+            {
+                Collider ogCollider = child.GetComponent<Collider>();
+                if (ogCollider) continue;
+
+                MeshCollider collid = Undo.AddComponent<MeshCollider>(child.gameObject);
+                collid.sharedMesh = child.sharedMesh;
+                collid.convex = true;
+            }
+        }
+
+        [Button]
+        void AddRigidbodies()
+        {
+            foreach (Collider child in _broken.GetComponentsInChildren<Collider>())
+            {
+                Rigidbody rb = child.GetComponent<Rigidbody>();
+                if (rb) continue;
+
+                Undo.AddComponent<Rigidbody>(child.gameObject);
+            }
+        }
+
+        [Button]
+        void AddBreakables()
+        {
+            foreach (Rigidbody rb in _broken.GetComponentsInChildren<Rigidbody>())
+            {
+                BreakablePiece brk = rb.GetComponent<BreakablePiece>();
+                if (brk) continue;
+
+                Undo.AddComponent<BreakablePiece>(rb.gameObject);
+            }
         }
         #endif
     }
