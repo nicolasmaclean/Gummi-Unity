@@ -2,7 +2,7 @@ using Gummi.Utility;
 using UnityEditor;
 using UnityEngine;
 
-namespace GummiEditor.Utility
+namespace GummiEditor.Drawers
 {
     [CustomPropertyDrawer(typeof(Optional<>))]
     public class OptionalDrawer : PropertyDrawer

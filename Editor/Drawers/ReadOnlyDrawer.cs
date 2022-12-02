@@ -4,7 +4,7 @@ using Gummi;
 using UnityEditor;
 using UnityEngine;
 
-namespace GummiEditor.Drawer
+namespace GummiEditor.Drawers
 {
     [CustomPropertyDrawer(typeof(ReadOnlyAttribute))]
     public class ReadOnlyDrawer : PropertyDrawer
