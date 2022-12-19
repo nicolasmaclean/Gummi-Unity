@@ -228,7 +228,7 @@ namespace Gummi
                 if (onFulfillAsync != null) AddFulfillHandler(() => onFulfillAsync(child));
                 if (onRejectAsync != null) AddRejectHandler(e => onRejectAsync(e, child));
                 
-                if (onProgress != null) AddProgressHandler(onProgress);
+                if (onProgress != null) child.AddProgressHandler(onProgress);
             }
 
             // chain promise
